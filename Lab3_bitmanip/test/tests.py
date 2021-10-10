@@ -14,13 +14,13 @@
 # An example set of tests is shown below. It is important to note that these tests are not "unit tests" in 
 # that they are not ran in isolation but in the order shown and the state of the device is not reset or 
 # altered in between executions (unless preconditions are used).
-tests = [ {'description': 'PORTA=0xFF => PORTB=0x0F PORTC=0xF0',
-    'steps': [ {'inputs': [('PINA',0xFF)], 'iterations': 5 } ],
-    'expected': [('PORTC',0xF0), ('PORTB', 0x0F)],
+tests = [ {'description': 'PORTD: 0x0F PORTB: 0x01 => PORTB: 0x03',
+    'steps': [ {'inputs': [('PIND',0x3F), ('PINB', 0x01)], 'iterations': 5 } ],
+    'expected': [('PORTB',0x02)],
     },
     {'description': 'PORTA=0x3A => PORTB=0x03 PORTC=0xA0',
-    'steps': [ {'inputs': [('PINA',0x3A)], 'iterations': 5 } ],
-    'expected': [('PORTB',0x03), ('PORTC', 0xA0)],
+    'steps': [ {'inputs': [('PIND',0x0F), ('PINB', 0x00)], 'iterations': 5 } ],
+    'expected': [('PORTB',0x04)],
     },
     ]
 
