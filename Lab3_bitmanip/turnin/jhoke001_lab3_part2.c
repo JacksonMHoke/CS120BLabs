@@ -18,7 +18,6 @@ int main(void) {
     DDRB = 0x00; PORTB = 0x00;
     DDRC = 0x00; PORTC = 0x00;
     unsigned char temp1 = 0x00;
-    unsigned char temp2 = 0x00;
     unsigned char fuelLevel = 0x00;
     /* Insert your solution below */
     while (1) {
@@ -30,7 +29,7 @@ int main(void) {
         else if (temp1>=10 && temp1<=12) fuelLevel=0x3E;
         else if (temp1>=13 && temp1<=15) fuelLevel=0x3F;
         
-        if (temp1<5) fuelLevel |= 0x80;
+        if (temp1<5) fuelLevel |= 0x40;
 
         PORTC=fuelLevel;
     }
